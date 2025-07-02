@@ -1,0 +1,179 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="rgb(238, 234, 229)" />
+    <title>Smartly Prompt Engineering</title>
+    <meta name="description" content="Product Designer" />
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="--color-bg-primary">
+    <!-- favicon -->
+    <!-- style  -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/media-query.css">
+    <!-- script -->
+    <script type="module" src="static/js/fader.js"></script>
+    <script type="module" src="static/js/title-reveal.js"></script>
+    <script type="module" src="static/js/paragraph-reveal.js"></script>
+    <script type="module" src="static/js/grid.js"></script>
+    <script type="module" src="static/js/sphereprompt.js"></script>
+    <script type="module" src="static/js/wave.js"></script>
+    <script type="module" src="static/js/chart.js"></script>
+    <script type="module" src="static/js/graded-chart.js"></script>
+    <script type="module" src="static/js/chart-corridor.js"></script>
+    <script type="module" src="static/js/data-extraction.js"></script>
+    <script type="module" src="static/js/data-extraction-highlight.js"></script>
+    <script type="module" src="static/js/carouselprompt.js"></script>
+    <script type="module" src="static/js/theme-switcher.js"></script>
+    <script type="module" src="static/js/link-selection.js"></script>
+    <script type="module" src="static/js/typing.js"></script>
+    <script type="module" src="static/js/tableLLMmethod.js"></script>
+    <script type="module" src="static/js/tableLLMparts.js"></script>
+    <script type="module" src="static/js/promptEngineeringMethods.js"></script>
+    <script type="module" src="static/js/promptShotDots.js"></script>
+    <script>
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+      // Custom smooth scroll with easing
+      function smoothScrollBy(distance) {
+        const startPosition = window.pageYOffset;
+        const targetPosition = startPosition + distance;
+        const duration = 800; // Animation duration in milliseconds
+        const startTime = performance.now();
+
+        function animateScroll(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Apply easing function
+          const easedProgress = easeOutCubic(progress);
+          // Calculate current scroll position
+          const currentPosition = startPosition + (distance * easedProgress);
+          window.scrollTo(0, currentPosition);
+          // Continue animation if not complete
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+          }
+        }
+        requestAnimationFrame(animateScroll);
+      }
+      // Keyboard event listener
+      document.addEventListener('keydown', function(event) {
+        const vh = window.innerHeight;
+        switch (event.key) {
+          case 'ArrowRight':
+            event.preventDefault();
+            smoothScrollBy(vh);
+            break;
+          case 'ArrowLeft':
+            event.preventDefault();
+            smoothScrollBy(-vh);
+            break;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="top-fader">
+      <div class="progressive-fader" data-direction="top" data-color="--color-bg-primary" data-intensity="2.0" data-gradient="true" data-gradient-opacity="0.8"></div>
+    </div>
+    <div class="view-intro">
+      <div id="grid-container" class="grid-container">
+        <div class="grid-fader">
+          <div class="progressive-fader" data-direction="bottom" data-color="--color-bg-primary" data-intensity="4.0" data-gradient="true" data-gradient-opacity="0.8"></div>
+        </div>
+      </div>
+      <article>
+        <h1 title-reveal class="title_md_32 text-primary">Prompt Engineering </h1>
+        <p title-reveal title-reveal-delay="800" class="body_sm_14 text-secondary">Is it Engineering? Art or ... </p>
+      </article>
+    </div>
+    <div class="view-LLM">
+      <article>
+        <h1 title-reveal class="title_sm_24 text-primary">It is the way we intracting with <a>LLM</a>s </h1>
+        <p title-reveal title-reveal-delay="800" class="body_sm_14 text-secondary">a type of AI that has read massive amounts of text from the internet. books, websites, conversations, and code, to learn how to predict the next word (token) in a sentence. </p>
+      </article>
+    </div>
+    <div class="view-typing">
+      <p typing-effect class="title_lg_48 text-matrix">this morning, when I woke up </p>
+      <div class="data-extraction-container prompt">
+        <div data-extraction class="data-extraction"></div>
+        <div data-extraction-highlight class="data-extraction-highlight"></div>
+        <div class="data-extraction-fader"></div>
+      </div>
+    </div>
+    <div class="view-1">
+      <div id="grid-container" class="grid-container">
+        <div class="grid-fader">
+          <div class="progressive-fader" data-direction="bottom" data-color="--color-bg-primary" data-intensity="4.0" data-gradient="true" data-gradient-opacity="0.8"></div>
+        </div>
+      </div>
+      <article style="z-index: 2000;">
+        <h1 title-reveal class="title_sm_24 text-matrix">I'm <a>Tomi</a>, Full time Learner & Lead Product Designer at <a>Smartly</a>
+        </h1>
+        <p title-reveal title-reveal-delay="800" class="body_sm_14 text-matrix">I live in Vantaa. This morning, the temperature was between 14 and 20 degrees Celsius, and the weather was partly cloudy. Yesterday evening at 6 o’clock, I ordered a pack of medium roast coffee beans from K-Market through the Wolt app. </p>
+      </article>
+      <div class="sphere" id="sphere-container"></div>
+      <div class="data-extraction-container tomi">
+        <div data-extraction class="data-extraction"></div>
+        <div data-extraction-highlight class="data-extraction-highlight"></div>
+        <div class="data-extraction-fader"></div>
+      </div>
+    </div>
+    <div class="view-LLM-methods"></div>
+    <div class="view-ai-terminology"></div>
+    <div class="view-prompt-eng"></div>
+    <div class="view-shots">
+      <div class="shot-section">
+        <h2 class="title_md_32 text-primary shot-title">ZeroShot</h2>
+        <ul class="shot-list body_lg_16 text-secondary">
+          <li>No examples provided in the prompt</li>
+          <li>Relies entirely on model's pre-trained knowledge</li>
+          <li>Works best with clear instructions and formatting</li>
+          <li>Ideal for factual or well-defined tasks</li>
+        </ul>
+      </div>
+      <div class="shot-section">
+        <h2 class="title_md_32 text-primary shot-title">FewShot</h2>
+        <ul class="shot-list body_lg_16 text-secondary">
+          <li>Includes one or more examples in the prompt</li>
+          <li>Helps guide tone, structure, and creativity</li>
+          <li>Useful for ambiguous, subjective, or creative tasks</li>
+          <li>Improves consistency with pattern imitation</li>
+        </ul>
+      </div>
+      <div class="bottom-fader">
+        <div class="progressive-fader" data-direction="bottom" data-color="--color-bg-primary" data-intensity="2.0" data-gradient="true" data-gradient-opacity="0.8"></div>
+      </div>
+      <div class="data-extraction-container shots">
+        <div data-extraction class="data-extraction"></div>
+        <div data-extraction-highlight class="data-extraction-highlight"></div>
+        <div class="data-extraction-fader"></div>
+      </div>
+    </div>
+    <div class="view-7">
+      <section>
+        <h2 class="title_md_32">Sources</h2>
+      </section>
+      <div class="carousel-root">
+        <div carousel-container>
+          <div class="carousel-item GenAI">
+            <a class="img" href="https://www.amazon.com/Prompt-Engineering-Generative-AI-Future-Proof/dp/109815343X" target="_blank"></a>
+          </div>
+          <div class="carousel-item google">
+            <a class="img" href="https://www.gptaiflow.tech/assets/files/2025-01-18-pdf-1-TechAI-Goolge-whitepaper_Prompt%20Engineering_v4-af36dcc7a49bb7269a58b1c9b89a8ae1.pdf" target="_blank"></a>
+          </div>
+          <div class="carousel-item gpt">
+            <a class="img" href="https://www.amazon.co.za/Prompt-Engineering-Using-ChatGPT-Interactions/dp/1501522418" target="_blank"></a>
+          </div>
+          <div class="carousel-item perfectPropmt">
+            <a class="img" href="https://promptperfect.xyz/" target="_blank"></a>
+          </div>
+           <div class="carousel-item" style="width: 1px !important;opacity: 0;"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="static/js/noise.js"></script>
+    <script type="module" src="static/js/safari-style.js"></script>
+  </body>
+</html>
